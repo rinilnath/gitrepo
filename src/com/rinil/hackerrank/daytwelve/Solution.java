@@ -1,5 +1,5 @@
 /**
- * 
+ * Program to explain inheritance concept
  */
 package com.rinil.hackerrank.daytwelve;
 
