@@ -57,7 +57,6 @@ class Student extends Person {
 	 * 
 	 * @param scores - An array of integers denoting the Person's test scores.
 	 */
-	// Write your constructor here
 	public char calculate() {
 		char grade = ' ';
 		int sum = 0;
