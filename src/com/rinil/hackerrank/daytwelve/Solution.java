@@ -40,6 +40,10 @@ class Student extends Person {
 	public Student(String firstName, String lastName, int id, int[] testScores) {
 		super(firstName, lastName, id);
 		this.testScores = testScores;
+		if ((firstName.length() < 1 || firstName.length() > 10)
+				|| (lastName.length() < 1 || lastName.length() > 10)
+				|| (String.valueOf(id).length() > 7))
+			System.exit(0);
 	}
 
 	/*
@@ -60,14 +64,26 @@ class Student extends Person {
 		int avg = 0;
 		int noofscores = 0;
 		for (int i = 0; i < testScores.length; i++) {
-			sum = testScores[i] + testScores[i + 1];
+			if (testScores[i] < 0 || testScores[i] > 100)
+				System.exit(0);
+			sum += testScores[i];
 			noofscores++;
 		}
 		avg = sum / noofscores;
+		if (avg < 0 || avg > 100)
+			System.exit(0);
 		if (avg <= 100 && avg >= 90) {
-
-		}
-		return grade; // TODO: correct this
+			return 'O';
+		} else if (avg >= 80 && avg < 90)
+			return 'E';
+		else if (avg >= 70 && avg < 80)
+			return 'A';
+		else if (avg >= 55 && avg < 70)
+			return 'P';
+		else if (avg >= 40 && avg < 55)
+			return 'D';
+		else
+			return 'T';
 
 	}
 }
@@ -85,7 +101,6 @@ class Solution {
 			testScores[i] = scan.nextInt();
 		}
 		scan.close();
-
 		Student s = new Student(firstName, lastName, id, testScores);
 		s.printPerson();
 		System.out.println("Grade: " + s.calculate());
