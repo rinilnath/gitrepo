@@ -19,7 +19,6 @@ public class Solution {
 		Map<String, Integer> phoneBookMap = new HashMap<String, Integer>();
 		int phoneNum = 0;
 		int queryCounter = 0;
-		String nameStr = "";
 		if (n >= 1 && n <= 100000)
 			for (int i = 0; i < n; i++) {
 				String name = in.next();
